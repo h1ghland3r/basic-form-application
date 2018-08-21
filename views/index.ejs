@@ -4,11 +4,79 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title><%= title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 
 <body>
-    <h1>Sign-up now</h1>
-    <script src=""></script>
+    <header class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>
+                        Sign-up
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <form action="/add" method="post">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="text" name="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="text" name="phone" class="form-control">
+                        </div>
+                        <button type="submit btn-primary" class="btn">Sign up</button>
+                    </form>
+                </div>
+                <div class="col-sm-9">
+                    <table class="table">
+                        <tbody>
+                            <% for (var i = 0; i < user.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <strong>#<%= i + 1 %></strong>
+                                </td>
+                                <td>
+                                    <%= user[i].name %>
+                                </td>
+                                <td>
+                                    <%= user[i].email %>
+                                </td>
+                                <td>
+                                    <%= user[i].password %>
+                                </td>
+                                <td>
+                                    <%= user[i].phone %>
+                                </td>
+                                <td class="remove">
+                                    <a href="/remove/<%= user[i]._id %>" class="">Remove</a>
+                                </td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

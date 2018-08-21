@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var model = require('./../models/register.model')();
+var model = require('./../models/user.model')();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
         if (err) {
             throw err;
         }
-        res.render('index', { title: 'Railan Barbosa -Aubay Application', user: user});
+        res.render('index', { title: 'Railan Barbosa - Basic Form Application', user: user});
     });
 });
 
