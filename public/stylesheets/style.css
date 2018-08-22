@@ -1,8 +1,87 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html, body {
+    padding: 0;
+    margin: 0;
 }
 
-a {
-  color: #00B7FF;
+body {
+    background-color: #242F40;
+    color: #E5E5E5;
+    font-family: 'Oxygen', sans-serif;
+}
+
+/* Text and inputs */
+
+a:hover {
+    text-decoration: none;
+}
+
+.btn {
+    color: #363636;
+}
+
+.btn-submit {
+    background: #CCA43B;
+}
+
+.btn-submit:hover {
+    background: #CC9816;
+}
+
+/* Header */
+
+header h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+/* Form */
+
+section[role="form"] {
+    background-color: #33435B;
+}
+
+section .form input {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+
+section .form .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #CCA43B;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(204,164,59,0.5);
+}
+
+/* Table */
+
+section .table td, .table th {
+    border-top: 0;
+}
+
+section .table tbody .table__tr--highlight {
+    border-bottom: 1px solid white;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+section .table-hover tbody .table__tr--highlight:hover {
+    background-color: #242F40;
+}
+
+section .table-hover tbody tr:hover {
+    background-color: rgba(197,197,197,.1);
+}
+
+section .table .table-action {
+    color: #E5E5E5;
+}
+
+section .table .table-action i {
+    color: #CCA43B;
+}
+
+section .table .table-action i:hover {
+    color: #CC9816;
 }
