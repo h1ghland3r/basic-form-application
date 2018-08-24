@@ -27,6 +27,14 @@ a:hover {
     background: #CC9816;
 }
 
+.error-message {
+    color: #FB6472;
+}
+
+.success-message {
+    color: #CC9816;
+}
+
 /* Header */
 
 header h1 {
