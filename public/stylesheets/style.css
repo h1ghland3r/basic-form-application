@@ -26,10 +26,6 @@ a:hover {
     color: #FB6472;
 }
 
-.fair-message {
-    color: #CC9816;
-}
-
 .success-message {
     color: #28a745;
 }
@@ -82,7 +78,7 @@ section .form input:valid {
 }
 
 section .form #validationPassword {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
 }
 
 /* Table */

@@ -65,26 +65,17 @@ $(document).ready(function(){
 
         // shows score on output
         if (passwordInputValue.length >= 1) {
-            if (passwordStrength <= 40) {
-                var score = scoresOutput.html('Weak password.');
+            if (passwordStrength <= 80) {
+                var score = scoresOutput.html('Your password must have at least 8 characters and containing numbers, uppercase and lowercase letters, and at least a special character.');
                 scoresOutput.addClass('error-message');
-                if (scoresOutput.is('.fair-message, .success-message')) {
-                    scoresOutput.removeClass('fair-message');
-                    scoresOutput.removeClass('success-message');
-                }
-            } else if (passwordStrength > 40 && passwordStrength <= 80) {
-                var score = scoresOutput.html('Fair password, but it could be better.');
-                scoresOutput.addClass('fair-message');
-                if (scoresOutput.is('.error-message, .success-message')) {
-                    scoresOutput.removeClass('error-message');
+                if (scoresOutput.is('.success-message')) {
                     scoresOutput.removeClass('success-message');
                 }
             } else {
-                var score = scoresOutput.html('Strong password');
+                var score = scoresOutput.html('');
                 scoresOutput.addClass('success-message');
-                if (scoresOutput.is('.error-message, .fair-message')) {
+                if (scoresOutput.is('.error-message')) {
                     scoresOutput.removeClass('error-message');
-                    scoresOutput.removeClass('fair-message');
                 }
             }
         }
