@@ -25,7 +25,6 @@ router.post('/add', function (req, res, next) {
         if (err) {
             res.send(500, err);
         } else {
-            //res.redirect('/');
             res.send({redirect: '/'});
         }
     });
