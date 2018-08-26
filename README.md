@@ -8,7 +8,7 @@ Personal project for training Node.Js and MongoDB integration
 Frontend: HTML5, EJS, Boostrap, FontAwesome, jQuery
 <br/>
 Backend: Node.Js, Express, MongoDB, Mongoose
-<br/><br/>
+<br/>
 
 **Instructions for testing**
 <br/>
@@ -17,7 +17,7 @@ Backend: Node.Js, Express, MongoDB, Mongoose
 3) Install MongoDB and start its service;
 4) Run npm start.
 
-<br/><br/>
+<br/>
 
 **UI**
 
