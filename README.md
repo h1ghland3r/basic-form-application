@@ -4,8 +4,11 @@ Personal project for training Node.Js and MongoDB integration
 <br/><br/>
 
 **Developed using**
+<br/>
 Frontend: HTML5, EJS, Boostrap, FontAwesome, jQuery
+<br/>
 Backend: Node.Js, Express, MongoDB, Mongoose
+<br/><br/>
 
 **Instructions for testing**
 <br/>
