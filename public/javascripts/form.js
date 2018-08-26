@@ -1,12 +1,111 @@
 $(document).ready(function(){
+   
+    /* Phone Number */
+    function validatePhoneNumber() {
+        var phoneNumber = $("input[name='phone']").val();
+        var regex = /[0-9]{3}\s[0-9]{3}\s[0-9]{3}/;
+        var isValid = regex.test(phoneNumber);
+        return isValid;
+    }
+    
+    function addSpacesinPhoneNumber() {
+        var phoneInput = $("input[name='phone']");
+        var phoneInputValue = $("input[name='phone']").val();
+        var phoneInputValueWithSpaces = phoneInputValue.toString().replace(/[^\dA-Z]/g, '').replace(/(.{3})/g, '$1 ').trim();
+        var replacedNumbers = phoneInput.val(phoneInputValueWithSpaces);
+        return replacedNumbers;
+    }
+
+    function removeAnyCharOverlappingMaxLength() {
+        var phoneInput = $("input[name='phone']");
+        var phoneInputValue = $("input[name='phone']").val();
+        var phoneInputValueFinal = '';
+        if (phoneInputValue.length > 11) {
+            phoneInputValueFinal = phoneInput.val(phoneInputValue.substr(0, 11));
+            return phoneInputValueFinal;
+        }
+    }
+
+    $("input[name='phone']").on("keyup", function() {
+        addSpacesinPhoneNumber();
+        removeAnyCharOverlappingMaxLength();
+    });
+    
+    $("input[name='phone']").on("blur", function() {
+        validatePhoneNumber();
+    });
+
+    /* Password */
+
+    function validatePasswordStrength(){
+        var passwordStrength = 0;
+        var passwordInputValue = $("input[name='password']").val();
+        var scoresOutput = $("#validationPassword");
+
+        // scores length
+        if (passwordInputValue.length >= 6) {
+            passwordStrength += 20;
+        }
+        // scores for lowercase
+        if (passwordInputValue.match(/[a-z]+/)) {
+            passwordStrength += 20;
+        }
+        // scores for uppercase
+        if (passwordInputValue.match(/[A-Z]+/)) {
+            passwordStrength += 20;
+        }
+        // scores for numbers
+        if (passwordInputValue.match(/\d+/)) {
+            passwordStrength += 20;
+        }
+        // scores for alphanumeric
+        if (passwordInputValue.match(/\W+/)) {
+            passwordStrength += 20;
+        }
+
+        // shows score on output
+        if (passwordInputValue.length >= 1) {
+            if (passwordStrength <= 40) {
+                var score = scoresOutput.html('Weak password.');
+                scoresOutput.addClass('error-message');
+                if (scoresOutput.is('.fair-message, .success-message')) {
+                    scoresOutput.removeClass('fair-message');
+                    scoresOutput.removeClass('success-message');
+                }
+            } else if (passwordStrength > 40 && passwordStrength <= 80) {
+                var score = scoresOutput.html('Fair password, but it could be better.');
+                scoresOutput.addClass('fair-message');
+                if (scoresOutput.is('.error-message, .success-message')) {
+                    scoresOutput.removeClass('error-message');
+                    scoresOutput.removeClass('success-message');
+                }
+            } else {
+                var score = scoresOutput.html('Strong password');
+                scoresOutput.addClass('success-message');
+                if (scoresOutput.is('.error-message, .fair-message')) {
+                    scoresOutput.removeClass('error-message');
+                    scoresOutput.removeClass('fair-message');
+                }
+            }
+        }
+        
+        return score;
+    }
+
+    $("input[name='password']").on("keyup", function() {
+        validatePasswordStrength();
+    });
+
+    /* Form Submit */
     $form = $("#formSubmit");
 
     $form.submit (function (e) {
         e.preventDefault();
-        initValidate();
+        removeAnyCharOverlappingMaxLength();
+        validateForm();
     });
 
-    function initValidate() {
+    function validateForm() {
         var formData = {};
         formData.name = $form.find("input[name='name']").val();
         formData.email = $form.find("input[name='email']").val();
